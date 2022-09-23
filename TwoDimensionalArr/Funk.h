@@ -21,7 +21,7 @@ void PrintArray(int** array, int rowsSize, int columnsSize)
     {
         for (int j = 0; j < columnsSize; j++)
         {
-            cout << array[i][j]  << " ";
+            cout << array[i][j]  << "\t";
         }
         cout << endl;
     }
@@ -145,3 +145,75 @@ long MultOfSecondaryDiagonal(int** array, int rowsSize, int columnsSize)
     }
     return result;
 }
+
+int* MinElemInMatrix(int** array, int rowsSize, int columnsSize)
+{
+    int result[2];
+    int MinNumber = array[0][0];
+    for (int i = 0; i < rowsSize; i++)
+    {
+        for (int j = 0; j < columnsSize; j++)
+        {
+            if (MinNumber > array[i][j])
+            {
+                result[0] = i;
+                result[1] = j;
+                MinNumber = array[i][j];
+            }
+        }
+    }
+    return result;
+}
+
+int* MaxElemInMatrix(int** array, int rowsSize, int columnsSize)
+{
+    int result[2];
+    int MaxNumber = array[0][0];
+    for (int i = 0; i < rowsSize; i++)
+    {
+        for (int j = 0; j < columnsSize; j++)
+        {
+            if (MaxNumber < array[i][j])
+            {
+                result[0] = i;
+                result[1] = j;
+                MaxNumber = array[i][j];
+            }
+        }
+    }
+    return result;
+}
+
+int* MaxElemInRows(int** array, int columnsSize, int row)
+{
+    int result[] {row, 0};
+    int MaxNumber = array[row][0];
+    for (int i = 0; i < columnsSize; i++)
+    {
+        if (MaxNumber < array[row][i])
+        {
+            result[1] = i;
+            MaxNumber = array[row][i];
+        }
+    } 
+    return result;
+}
+
+int* MaxElemInRows(int** array, int columnsSize, int row)
+{
+    int result[]{ row, 0 };
+    int MaxNumber = array[row][0];
+    for (int i = 0; i < columnsSize; i++)
+    {
+        if (MaxNumber < array[row][i])
+        {
+            result[1] = i;
+            MaxNumber = array[row][i];
+        }
+    }
+    return result;
+}
+
+// cyka
+/// да бля почему эта хуета не робит
+//ладно я заебался

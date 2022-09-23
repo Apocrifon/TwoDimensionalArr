@@ -1,3 +1,6 @@
 ﻿  TwoDimensionalArr.cpp
-D:\Repositories\TwoDimensionalArr\TwoDimensionalArr\Funk.h(10,15): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+D:\Repositories\TwoDimensionalArr\TwoDimensionalArr\Funk.h(10,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+D:\Repositories\TwoDimensionalArr\TwoDimensionalArr\Funk.h(199): warning C4172: returning address of local variable or temporary: result
+D:\Repositories\TwoDimensionalArr\TwoDimensionalArr\Funk.h(184): warning C4172: returning address of local variable or temporary: result
+D:\Repositories\TwoDimensionalArr\TwoDimensionalArr\Funk.h(165): warning C4172: returning address of local variable or temporary: result
   TwoDimensionalArr.vcxproj -> D:\Repositories\TwoDimensionalArr\x64\Debug\TwoDimensionalArr.exe
