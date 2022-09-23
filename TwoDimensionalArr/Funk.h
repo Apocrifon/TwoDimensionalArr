@@ -60,45 +60,88 @@ int** TransformOneDinInTwo(int* parentsArray, int rowsSize, int columnsSize)
     return result;
 }
 
-int SumOfRow(int**array, int size, int index)
+long SumOfRow(int**array, int size, int index)
 {
-    for (int i = 0; i < length; i++)
+    long result = 0;
+    for (int i = 0; i < size; i++)
     {
-
+        result += array[index][i];
     }
+    return result;
 }
 
-int SumOfColums(int** array, int size, int index)
+long SumOfColumn(int** array, int size, int index)
 {
-
+    long result = 0;
+    for (int i = 0; i < size; i++)
+    {
+        result += array[i][index];
+    }
+    return result;
 }
 
-int SumOfPrimaryDiagonal(int** array, int rowsSize, int columnsSize)
+long SumOfPrimaryDiagonal(int** array, int rowsSize, int columnsSize)
 {
-
+    long result = 0;
+    int index = (rowsSize < columnsSize) ? rowsSize : columnsSize;
+    for (int i = 0; i < index; i++)
+    {
+        result += array[i][i];
+    }
+    return result;
 }
 
-int SumOfSecondaryDiagonal(int** array, int rowsSize, int columnsSize)
+long SumOfSecondaryDiagonal(int** array, int rowsSize, int columnsSize)
 {
-
+    long result = 0;
+    int maxIndex = (rowsSize > columnsSize) ? rowsSize : columnsSize;
+    int minIndex= (rowsSize > columnsSize) ? columnsSize : rowsSize;
+    for (int i = maxIndex-1, j=0; j < minIndex; i--, j++)
+    {
+             result += array[j][i];
+    }
+    return result;
 }
 
-int MultOfRow(int** array,  int size, int index)
+long MultOfRow(int** array, int size, int index)
 {
-
+    long result = 1;
+    for (int i = 0; i < size; i++)
+    {
+        result *= array[index][i];
+    }
+    return result;
 }
 
-int MultOfColums(int** array, int size, int index)
+long MultOfColumn(int** array, int size, int index)
 {
-
+    long result = 1;
+    for (int i = 0; i < size; i++)
+    {
+        result *= array[i][index];
+    }
+    return result;
 }
 
-int MultOfPrimaryDiagonal(int** array, int rowsSize, int columnsSize)
+long MultOfPrimaryDiagonal(int** array, int rowsSize, int columnsSize)
 {
-
+    long result = 1;
+    int index = (rowsSize < columnsSize) ? rowsSize : columnsSize;
+    for (int i = 0; i < index; i++)
+    {
+        result *= array[i][i];
+    }
+    return result;
 }
 
-int MultOfSecondaryDiagonal(int** array, int rowsSize, int columnsSize)
+long MultOfSecondaryDiagonal(int** array, int rowsSize, int columnsSize)
 {
-
+    long result = 1;
+    int maxIndex = (rowsSize > columnsSize) ? rowsSize : columnsSize;
+    int minIndex = (rowsSize > columnsSize) ? columnsSize : rowsSize;
+    for (int i = maxIndex - 1, j = 0; j < minIndex; i--, j++)
+    {
+        result *= array[j][i];
+    }
+    return result;
 }
