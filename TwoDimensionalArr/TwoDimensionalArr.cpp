@@ -1,5 +1,7 @@
-#include "Funk.h"
-#include <ctime>
+#include "Transform.h"
+#include "Print.h"
+#include "MathOperations.h"
+#include "Search.h"
 
 int main()
 {
@@ -11,7 +13,7 @@ int main()
 	for (int i = 0; i < rowsSize; i++)
 		array[i] = new int[columnsSize];
 	SetRandValueForInt(array, rowsSize, columnsSize);
-	PrintArray(array, rowsSize, columnsSize);
+	PrintMatrix(array, rowsSize, columnsSize);
 	//int* arr = TranformTwoDimInOne(array, rowsSize, columnsSize);
 	//int** arr2 = TransformOneDinInTwo(arr, rowsSize, columnsSize);
 	//PrintArray(arr2, rowsSize, columnsSize);
@@ -25,7 +27,10 @@ int main()
 	//cout << "Сумма побочной диагонали =" << SumOfSecondaryDiagonal(array, rowsSize, columnsSize) << endl;
 	//cout << "Произведение главной диагонали = " << MultOfPrimaryDiagonal(array, rowsSize, columnsSize) << endl;
 	//cout << "Произвдение побочной диагонали =" << MultOfSecondaryDiagonal(array, rowsSize, columnsSize) << endl;
-	MaxElemInRows(array, columnsSize, 1);
+	/*PrintArray(MaxElemInRows(array, columnsSize, 1), 2);*/
+	PrintArray(MinElemInSecondaryDia(array, rowsSize, columnsSize), 2);
+
+
 
 
 

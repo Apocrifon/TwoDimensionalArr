@@ -130,7 +130,11 @@
     <ClCompile Include="TwoDimensionalArr.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Funk.h" />
+    <ClInclude Include="Sort.h" />
+    <ClInclude Include="Transform.h" />
+    <ClInclude Include="MathOperations.h" />
+    <ClInclude Include="Print.h" />
+    <ClInclude Include="Search.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
