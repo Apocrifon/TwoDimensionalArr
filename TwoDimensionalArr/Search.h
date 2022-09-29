@@ -197,16 +197,96 @@ int* MinElemInSecondaryDia(int** array, int rowsSize, int columnsSize)
     return result;
 }
 
-//int CounterOfElemInMatrix(int** array, int rowsSize, int columnsSize, bool (*predicate)(int))   // rewrite
-//{
-//    int counter = 0;
-//    for (size_t i = 0; i < rowsSize; i++)
-//    {
-//        for (size_t j = 0; j < columnsSize; j++)
-//        {
-//            if ((*predicate)(array[i][j]))
-//                counter++;
-//        }
-//    }
-//    return counter;
-//}
+int CounterOfElemInMatrix(int** array, int rowsSize, int columnsSize, bool (*predicate)(int))   // rewrite
+{
+    int counter = 0;
+    for (size_t i = 0; i < rowsSize; i++)
+    {
+        for (size_t j = 0; j < columnsSize; j++)
+        {
+            if ((*predicate)(array[i][j]))
+                counter++;
+        }
+    }
+    return counter;
+}
+
+int CounterOfElemInRow(int** array, int row, int columnsSize, bool (*predicate)(int))   // rewrite
+{
+    int counter = 0;
+        for (size_t j = 0; j < columnsSize; j++)
+        {
+            if ((*predicate)(array[row][j]))
+                counter++;
+        }
+
+    return counter;
+}
+
+int CounterOfElemInColumn(int** array, int column, int rowsSize, bool (*predicate)(int))   // rewrite
+{
+    int counter = 0;
+    for (size_t j = 0; j < rowsSize; j++)
+    {
+        if ((*predicate)(array[j][column]))
+            counter++;
+    }
+
+    return counter;
+}
+
+int CounterOfElemInPrimaryDia(int** array, int rowsSize, int columnsSize, bool (*predicate)(int))
+{
+    int counter = 0;
+    int shortLine = (rowsSize < columnsSize) ? rowsSize : columnsSize;
+    for (int i = 0; i < shortLine; i++)
+    {
+        if ((*predicate)(array[i][i]))
+            counter++;
+    }
+    return counter;
+}
+
+int CounterOfElemInSecondaryDia(int** array, int rowsSize, int columnsSize, bool (*predicate)(int))
+{
+    int counter = 0;
+    int shortLine = (rowsSize < columnsSize) ? rowsSize : columnsSize;
+    int j = 0;
+    for (int i = 0; i < shortLine; i++)
+    {
+        j++;
+        if ((*predicate)(array[i][columnsSize - j]))
+            counter++;   
+    }
+    return counter;
+}
+
+int CounterOfElemUpperTria(int** array, int rowsSize, int columnsSize, bool (*predicate)(int))
+{
+    int counter = 0;
+    
+    for (int i = 0; i < rowsSize; i++)
+    {
+        for (int j = i; j < columnsSize; j++)
+        {
+            if ((*predicate)(array[i][j]))
+                counter++;
+        }
+    }
+    return counter;
+}
+
+int CounterOfElemDownTria(int** array, int rowsSize, int columnsSize, bool (*predicate)(int))
+{
+    int counter = 0;
+    for (int i = rowsSize-1; i >= 0; i--)
+    {
+        for (int j = i; j >= 0; j--)
+        {
+            if ((*predicate)(array[i][j]))
+                counter++;
+        }
+    }
+    return counter;
+}
+
