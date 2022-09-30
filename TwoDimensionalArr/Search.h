@@ -25,6 +25,14 @@ bool IsZero(int a)
         return 0;
 }
 
+bool IsEven(int a)
+{
+    if (a % 2 == 0)
+        return 1;
+    else
+        return 0;
+}
+
 
 
 int* MinElemInMatrix(int** array, int rowsSize, int columnsSize)
@@ -224,7 +232,7 @@ int CounterOfElemInRow(int** array, int row, int columnsSize, bool (*predicate)(
 int CounterOfElemInColumn(int** array, int column, int rowsSize, bool (*predicate)(int))   // rewrite
 {
     int counter = 0;
-    for (size_t j = 0; j < rowsSize; j++)
+    for (int j = 0; j < rowsSize; j++)
     {
         if ((*predicate)(array[j][column]))
             counter++;
