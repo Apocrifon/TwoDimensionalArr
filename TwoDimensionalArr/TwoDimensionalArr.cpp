@@ -2,6 +2,7 @@
 #include "Print.h"
 #include "MathOperations.h"
 #include "Search.h"
+#include "PasteCut.h"
 
 int main()
 {
@@ -33,6 +34,8 @@ int main()
 	//PrintArray(MaxElemInRows(array, columnsSize, 1), 2);
 	//PrintArray(MinElemInSecondaryDia(array, rowsSize, columnsSize), 2);
 	//cout << CounterOfElemDownTria(array, rowsSize, columnsSize, IsPossitive); // #5
+	int** arr = MultMatrixOnMatrix(array, rowsSize, columnsSize, array, rowsSize, columnsSize);
+	PrintMatrix(arr, rowsSize, rowsSize);
 
 
 

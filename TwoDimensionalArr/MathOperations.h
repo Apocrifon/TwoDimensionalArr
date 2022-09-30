@@ -84,7 +84,7 @@ long MultOfSecondaryDiagonal(int** array, int rowsSize, int columnsSize)
     for (int i = 0; i < minIndex; i++)
     {
         j++;
-        result *= array[j][columnsSize - j];
+        result *= array[i][columnsSize - j];
     }
     return result;
 }

@@ -11,7 +11,7 @@ void SetRandValueForInt(int** array, int rowsSize, int columsSize)
     {
         for (int j = 0; j < columsSize; j++)
             array[i][j] = -5 + rand() % (10);
-    }
+    } 
 }
 
 
@@ -74,13 +74,10 @@ int** MultMatrixOnMatrix(int** array, int rowsSize, int columnsSize, int** matri
     {
         for (int j = 0; j < matrixColumnSize; j++)
         {
-            //result[i][j] = 0;
-            for (int m = 0; m < columnsSize; m++)
+            result[i][j] = 0;
+            for (int n = 0; n < columnsSize; n++)
             {
-                for (int n = 0; n < columnsSize; n++)
-                {
-                    result[i][j] += array[m][n] * matrix[n][m];
-                }
+                result[i][j] += array[i][n] * matrix[n][j];
             }
         }
     }
