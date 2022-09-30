@@ -49,6 +49,27 @@ int** TransformOneDinInTwo(int* parentsArray, int rowsSize, int columnsSize)
     return result;
 }
 
+void MultMatrixOnVector(int** array, int rowsSize, int columnsSize, int* vector)
+{
+    for (int i = 0; i < rowsSize; i++)
+    {
+        for (int j = 0; j < columnsSize; j++)
+        {
+            array[i][j] *= vector[j];
+        }
+    }
+}
+
+void MultMatrixOnMatrix(int** array, int rowsSize, int columnsSize, int** matrix, int matrixRowsSize, int matrixColumnSize )
+{
+    int** result = new int* [rowsSize];
+    for (int i = 0; i < rowsSize; i++)
+        array[i] = new int[matrixColumnSize];
+
+}
+
+
+
 
 
 

@@ -130,6 +130,7 @@
     <ClCompile Include="TwoDimensionalArr.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="PasteCut.h" />
     <ClInclude Include="Sort.h" />
     <ClInclude Include="Transform.h" />
     <ClInclude Include="MathOperations.h" />
