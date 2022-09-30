@@ -79,11 +79,12 @@ long MultOfPrimaryDiagonal(int** array, int rowsSize, int columnsSize)
 long MultOfSecondaryDiagonal(int** array, int rowsSize, int columnsSize)
 {
     long result = 1;
-    int maxIndex = (rowsSize > columnsSize) ? rowsSize : columnsSize;
     int minIndex = (rowsSize > columnsSize) ? columnsSize : rowsSize;
-    for (int i = maxIndex - 1, j = 0; j < minIndex; i--, j++)
+    int j = 0;
+    for (int i = 0; i < minIndex; i++)
     {
-        result *= array[j][i];
+        j++;
+        result *= array[j][columnsSize - j];
     }
     return result;
 }

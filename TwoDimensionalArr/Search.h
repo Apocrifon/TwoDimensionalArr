@@ -162,7 +162,6 @@ int* MaxElemInSecondaryDia(int** array, int rowsSize, int columnsSize)
     static int result[2];
     int maxNumber = array[0][columnsSize-1];
     int shortLine = (rowsSize < columnsSize) ? rowsSize : columnsSize;
-    int longLine = (rowsSize > columnsSize) ? rowsSize : columnsSize;
     int j = 0;
     for (int i = 0; i < shortLine; i++)
     {
@@ -182,7 +181,6 @@ int* MinElemInSecondaryDia(int** array, int rowsSize, int columnsSize)
     static int result[2];
     int minNumber = array[0][columnsSize - 1];
     int shortLine = (rowsSize < columnsSize) ? rowsSize : columnsSize;
-    int longLine = (rowsSize > columnsSize) ? rowsSize : columnsSize;
     int j = 0;
     for (int i = 0; i < shortLine; i++)
     {
@@ -265,7 +263,7 @@ int CounterOfElemUpperTria(int** array, int rowsSize, int columnsSize, bool (*pr
 {
     int counter = 0;
     
-    for (int i = 0; i < rowsSize; i++)
+    for (int i = 1; i < rowsSize; i++)
     {
         for (int j = i; j < columnsSize; j++)
         {
@@ -279,9 +277,9 @@ int CounterOfElemUpperTria(int** array, int rowsSize, int columnsSize, bool (*pr
 int CounterOfElemDownTria(int** array, int rowsSize, int columnsSize, bool (*predicate)(int))
 {
     int counter = 0;
-    for (int i = rowsSize-1; i >= 0; i--)
+    for (int i = rowsSize-1; i > 0; i--)
     {
-        for (int j = i; j >= 0; j--)
+        for (int j = i; j > 0; j--)
         {
             if ((*predicate)(array[i][j]))
                 counter++;

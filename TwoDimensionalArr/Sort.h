@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "Transform.h"
 
 using namespace std;
 
@@ -30,18 +31,14 @@ void SortColumn(int** array, int rowsSize, int column)
 
 void SortInMatrix(int** array, int rowsSize, int columnsSize)
 {
-    for (int i = 0; i < rowsSize; i++)
+    int* arr = new int[rowsSize * columnsSize];
+    arr = TranformTwoDimInOne(array, rowsSize, columnsSize);
+    for (int i = 0; i < rowsSize * columnsSize - 1; i++)
     {
-        for (int j = 0; j < columnsSize; j++)
+        for (int j = 0; j < rowsSize * columnsSize - 1; j++)
         {
-            for (int z = 0; z < columnsSize - 1; z++)
-            {
-                for (int y = 0; y < columnsSize - 1; y++)
-                {
-                    if (array[y][y+1] < array[y][y+1])
-                        swap(array[y][y+1], array[y][y+1    ]);
-                }
-            }
+            if (array[j + 1] < array[j])
+                swap(array[j], array[j + 1]);
         }
     }
 }

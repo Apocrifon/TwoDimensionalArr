@@ -10,7 +10,7 @@ void SetRandValueForInt(int** array, int rowsSize, int columsSize)
     for (int i = 0; i < rowsSize; i++)
     {
         for (int j = 0; j < columsSize; j++)
-            array[i][j] = -10000 + rand() % (20001);
+            array[i][j] = -5 + rand() % (10);
     }
 }
 
@@ -60,12 +60,62 @@ void MultMatrixOnVector(int** array, int rowsSize, int columnsSize, int* vector)
     }
 }
 
-void MultMatrixOnMatrix(int** array, int rowsSize, int columnsSize, int** matrix, int matrixRowsSize, int matrixColumnSize )
+int** MultMatrixOnMatrix(int** array, int rowsSize, int columnsSize, int** matrix, int matrixRowsSize, int matrixColumnSize )
 {
+    if (columnsSize != matrixRowsSize)
+    {
+        cout << "Wrong matrix size" << endl;
+        return NULL;
+    }
     int** result = new int* [rowsSize];
     for (int i = 0; i < rowsSize; i++)
-        array[i] = new int[matrixColumnSize];
+        result[i] = new int[matrixColumnSize];
+    for (int i = 0; i < rowsSize; i++)
+    {
+        for (int j = 0; j < matrixColumnSize; j++)
+        {
+            //result[i][j] = 0;
+            for (int m = 0; m < columnsSize; m++)
+            {
+                for (int n = 0; n < columnsSize; n++)
+                {
+                    result[i][j] += array[m][n] * matrix[n][m];
+                }
+            }
+        }
+    }
+    return result;
+}
 
+void MultMatrixColumnOnDigit(int** array, int row, int columnsSize, int digit)
+{
+    for (int i = 0; i < columnsSize; i++)
+    {
+        array[row][i] *= digit;
+    }
+}
+
+void DivideMatrixColumnOnDigit(int** array, int row, int columnsSize, int digit)
+{
+    for (int i = 0; i < columnsSize; i++)
+    {
+        array[row][i] /= digit;
+    }
+}
+
+int** TransposeMatrix(int** array, int rowsSize, int columnsSize)
+{
+    int** result = new int* [columnsSize];
+    for (int i = 0; i < columnsSize; i++)
+        result[i] = new int[rowsSize];
+    for (int i = 0; i < rowsSize; i++)
+    {
+        for (int j = 0; j < columnsSize; j++)
+        {
+            result[j][i] = array[i][j];
+        }
+    }
+    return result;
 }
 
 
